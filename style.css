@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-container{
+    position: relative; 
+    display: flex;     
+    justify-content: center;
+    align-items: center; 
+    text-align: center;        
+}
+
+.main-container img{
+    width: 100vw;
+    height: 100vh;   
+}
+
+.center-container{
+    position: absolute; 
+}
+
+.center-container h1{
+    font-family: 'Cabin Sketch', cursive; 
+    font-size: clamp(4rem, 11vw, 14rem);   
+    text-transform: uppercase; 
+    color: black; 
+} 
+
+#white{
+    color: white; 
+}
+
+.center-container button{      
+    background-color: hsla(0, 0%, 100%, 0.1);    
+    min-width: 35%;       
+    height: 55px;    
+    border-radius: 10px;  
+    font-size: clamp(1.5rem, 2.2vw, 10rem);             
+    margin-top: 40px;  
+    color: white; 
+    text-transform: uppercase;
+    font-family: 'ADLaM Display', cursive; 
+    border-color: aliceblue;
+    
+} 
+
+.center-container button:hover{
+    cursor: pointer;  
+    transform: translateY(-2px);    
+}    
