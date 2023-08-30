@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.main-container{
+.main-container{ 
     position: relative; 
     display: flex;     
     justify-content: center;
@@ -12,33 +12,53 @@
     text-align: center;        
 }
 
-.main-container img{
+.main-container img,
+.second-container img{ 
     width: 100vw;
     height: 100vh;   
 }
 
-.center-container{
-    position: absolute; 
+.center-container,
+.second-child-container{ 
+    position: absolute;   
 }
 
 .center-container h1{
     font-family: 'Cabin Sketch', cursive; 
     font-size: clamp(4rem, 11vw, 14rem);   
-    text-transform: uppercase; 
-    color: black; 
+    text-transform: uppercase;
+    color: black;  
+   
+}  
+
+.center-child{
+    display: inline-block;    
 } 
 
-#white{
-    color: white; 
+.center-child #moving-Up{ 
+    display: inline-block;   
+    animation: movingUp 3s linear infinite;     
+}  
+
+#moving-Down{
+    display: inline-block; 
+    animation: movingDown 3s linear infinite; 
 }
+
+
+.center-child .white{   
+    color: white; 
+    margin-left: 8px;  
+}
+
 
 .center-container button{      
     background-color: hsla(0, 0%, 100%, 0.1);    
     min-width: 35%;       
-    height: 55px;    
+    height: 60px;     
     border-radius: 10px;  
     font-size: clamp(1.5rem, 2.2vw, 10rem);             
-    margin-top: 40px;  
+    margin-top: 60px;     
     color: white; 
     text-transform: uppercase;
     font-family: 'ADLaM Display', cursive; 
@@ -49,4 +69,57 @@
 .center-container button:hover{
     cursor: pointer;  
     transform: translateY(-2px);    
-}    
+}
+
+.second-container{  
+    position: relative; 
+    display: flex;     
+    justify-content: flex-start;      
+}
+
+.second-child-container{
+    left: 20px; 
+}
+
+.second-child-container h1{
+    font-family: 'Cabin Sketch', cursive;
+    text-transform: uppercase;
+    font-size: clamp(3.5em, 6.5vw, 9em);        
+}
+
+#white{
+    color: white; 
+    margin-left: 10px;  
+}
+
+.column-container{
+    display: flex;  
+    position: absolute;  
+    border: 1px solid black; 
+}
+
+
+
+@keyframes movingUp{  
+    0%{
+        transform: translateY(0);        
+    }
+    50%{ 
+        transform: translateY(70px);              
+    }
+    100%{
+        transform: translateY(0);                 
+    } 
+}  
+
+@keyframes movingDown{
+    0%{ 
+        transform: translateY(70px);  
+    }
+    50%{
+        transform: translateY(0); 
+    }
+    100%{
+        transform: translateY(70px);   
+    }
+}
