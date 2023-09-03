@@ -15,7 +15,7 @@
 .main-container img,
 .second-container img{ 
     width: 100vw;
-    height: 100vh;   
+    height: 100vh; 
 }
 
 .center-container,
@@ -37,13 +37,13 @@
 
 .center-child #moving-Up{ 
     display: inline-block;   
-    animation: movingUp 3s linear infinite;     
+    animation: showUp 2s cubic-bezier(1, 0, 0.58, 1) forwards;      
 }  
 
 #moving-Down{
     display: inline-block; 
-    animation: movingDown 3s linear infinite; 
-}
+    animation: tiltingDown 2s cubic-bezier(1, 0, 0.58, 1) forwards;   
+} 
 
 
 .center-child .white{   
@@ -73,8 +73,7 @@
 
 .second-container{  
     position: relative; 
-    display: flex;     
-    justify-content: flex-start;      
+    display: flex;         
 }
 
 .second-child-container{
@@ -92,34 +91,126 @@
     margin-left: 10px;  
 }
 
-.column-container{
-    display: flex;  
+.wrap-column{
+    height: 60vh;   
+    width: 100vw;  
+    border: 1px solid yellow; 
     position: absolute;  
+    display: flex;       
+    justify-content: center !important; 
+    align-items: center;  
+    transform: translateY(30%);   
+}
+
+.column-container{
+    display: flex; 
+    flex-wrap: wrap;  
+    position: absolute;  
+    border: 1px solid red; 
+    justify-content: space-between;
+    margin-top: 20px; 
+    align-items: center;    
+    width: 60vw;       
+    height: 90%;    
+  
+}
+
+.option-container{
+    display: flex; 
     border: 1px solid black; 
+    width: 350px;  
+    height: 100%;   
+    margin-bottom: 10px;  
+    box-sizing: border-box;  
+    justify-content: center;
+    align-items: center;  
+    position: relative;  
+    border-radius: 20px;  
+
+}
+
+.option-container img{
+    max-width: 100%;
+    height: 100%;  
+    border-radius: 20px; 
+    
+}
+
+.option-container h3{
+    position: absolute;  
+    text-transform: uppercase; 
+    font-family: 'Rubik Iso', cursive;
+    font-size: 4rem; 
+    margin-bottom: 100px;  
+ }
+
+.option-container button{
+    position: absolute; 
+    width: 130px;   
+    height: 60px;  
+    border-radius: 20px;  
+    background-color: hsla(2, 0%, 100%, 0.1); 
+    margin-top: 200px;   
+    font-size: 1.5em; 
+    font-family: 'ADLaM Display', cursive;  
+    font-weight: bold; 
+    text-transform: uppercase; 
+    box-shadow: inset;
+}
+
+.option-container button:hover{
+    cursor: pointer;                  
+    animation: vibrate 0.2s forwards;         
+    
+}
+
+.option-container:hover{
+    cursor: pointer;
+    transform: scale(1.05);     
+    box-shadow: 10px 10px 5px 12px rgb(12, 15, 17) inset; 
+} 
+
+
+
+@keyframes vibrate{
+    0% {transform: rotate(0deg);
+    }
+    20% {transform: rotate(-4deg);
+    }
+    50% {transform: rotate(0deg);
+    }
+    70% {transform: rotate(4deg);
+    }
+    100% {transform: rotate(0deg);
+    } 
 }
 
 
 
-@keyframes movingUp{  
+@keyframes showUp{  
     0%{
-        transform: translateY(0);        
+        opacity: 0;
+        transform: scale(1.5);          
     }
     50%{ 
-        transform: translateY(70px);              
+        opacity: 1;
+        transform: scale(1);              
     }
-    100%{
-        transform: translateY(0);                 
-    } 
 }  
 
-@keyframes movingDown{
+@keyframes tiltingDown{
     0%{ 
-        transform: translateY(70px);  
+        opacity: 0;
+        /* transform: translateY(-200px);    */
+        transform: scale(1.5) rotate(0deg); 
     }
     50%{
-        transform: translateY(0); 
+        opacity: 1; 
+        transform:scale(1); 
     }
     100%{
-        transform: translateY(70px);   
+        opacity: 1;
+        /* transform: translateY(70px);      */
+        transform: scale(1) rotate(10deg);  
     }
 }
